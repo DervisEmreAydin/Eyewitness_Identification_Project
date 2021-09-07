@@ -10,7 +10,7 @@ import random
 
 model = VGGFace.loadModel()
 
-target = 'C:\\Users\\UNKNOWN\\Desktop\\Python_Egitim-master\\deepface-master\\Target\\DC.jpg'
+target = 'C:\\Users\\UNKNOWN\\PycharmProjects\\suspectRecognition\\Target\\S48.jpg'
 img = cv2.imread(target)
 plt.imshow(img[:, :, ::-1])
 plt.show()
@@ -58,13 +58,6 @@ birlestir = zip(product, Irklist)
 birlesmislist = list(birlestir)
 print(birlesmislist)
 
-sonuc = list(filter(lambda zipped: zipped[1] == 'white', zip(product, Irklist)))
-print(sonuc)
-
-for a, b in birlesmislist:  # daminant ırkı "white" ile eşleşen kişilerin bastırılması
-    if b == 'white':
-        print(a)
-
 sonliste = []  # hedef kişinin daminant ırkı ile eşleşen kişilerin dahil olduğu liste
 for a, b in birlesmislist:
     if b == resp["dominant_race"]:
@@ -81,9 +74,9 @@ random.shuffle(ilk_uc)  # Random sırala
 
 resim1 = ImageTk.PhotoImage(Image.open(ilk_uc[0]))
 resim2 = ImageTk.PhotoImage(Image.open(ilk_uc[1]))
-# resim3=ImageTk.PhotoImage(Image.open(ilk_uc[2]))
+resim3 = ImageTk.PhotoImage(Image.open(ilk_uc[2]))
 resim4 = ImageTk.PhotoImage(
-    Image.open('C:\\Users\\UNKNOWN\\Desktop\\Python_Egitim-master\\deepface-master\\Target\\DC.jpg'))
+    Image.open('C:\\Users\\UNKNOWN\\PycharmProjects\\suspectRecognition\\Target\\S48.jpg'))
 
 buton = tk.Button(form, image=resim1)
 buton.pack(side=tk.LEFT)
@@ -91,11 +84,12 @@ buton.pack(side=tk.LEFT)
 buton2 = tk.Button(form, image=resim2)
 buton2.pack(side=tk.LEFT)
 
-# buton3=tk.Button(form,image=resim3)
-# buton3.pack(side=tk.LEFT)
+buton3=tk.Button(form,image=resim3)
+buton3.pack(side=tk.LEFT)
 
 buton4 = tk.Button(form, image=resim4)
 buton4.pack(side=tk.LEFT)
 
 form.mainloop()
+
 
