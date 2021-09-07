@@ -22,8 +22,9 @@ print(resp["gender"])
 print(resp["dominant_race"])
 print(resp["dominant_emotion"])
 
-df = DeepFace.find(img_path='C:\\Users\\UNKNOWN\\Desktop\\Python_Egitim-master\\deepface-master\\Target\\DC.jpg',
-                   db_path='C:\\Users\\UNKNOWN\\Desktop\\Python_Egitim-master\\deepface-master\\NIST_SD32_MEDS-II_face\\data\\aa1',
+imgTarget = 'C:\\Users\\UNKNOWN\\PycharmProjects\\suspectRecognition\\Target';
+imgPath = imgTarget + '\\S48.jpg'
+df = DeepFace.find(img_path=imgPath, db_path= 'FaceDataset',
                    model_name='VGG-Face', model=model)
 
 df.head()
