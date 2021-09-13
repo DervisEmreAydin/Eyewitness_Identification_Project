@@ -60,6 +60,7 @@ def handle_accept_button():
     popup = popupArr[index]
     popup.getWindow().destroy()
     page2Window.destroy()
+    import page3
 
 
 def show_final_popup():

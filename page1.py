@@ -16,7 +16,7 @@ def handle_button_image_upload():
     print("button_image_upload is pressed")
     filename = filedialog.askopenfilename(initialdir="/",
                                           title=conf.image_upload_menu_info,
-                                          filetypes=[("Image Files", ".png .jfif, .jpg, .jpeg")])
+                                          filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if filename != "":
         label_file_explorer.configure(text="Dosya:" + filename + " yüklendi.")
         conf.suspect_image_path = filename
