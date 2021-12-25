@@ -20,9 +20,9 @@ initialScreen = Screen(conf.lineup_logo_initial)
 initialWindow = initialScreen.getWindow()
 
 # Set the labels and buttons on the initial window
-label_program_description = Label(initialWindow, text=conf.program_description, bg='#343544').place(relx=0.5, rely=0.78,
+label_program_description = Label(initialWindow, text=conf.program_description, bg='#343544', font=('calibre', 13), fg= 'white').place(relx=0.5, rely=0.76,
                                                                                                     anchor='center')
-label_version_info = Label(initialWindow, text=conf.version_info, bg='#343544').place(relx=0.80, rely=0.85, anchor='se')
+label_version_info = Label(initialWindow, text=conf.version_info, bg='#343544', font=('calibre', 15, 'bold'), fg= 'white').place(relx=0.80, rely=0.85, anchor='se')
 button_start = Button(initialWindow, text=conf.start_button_text, command=lambda: handle_start_button()).place(relx=0.5,
                                                                                                                rely=0.82,
                                                                                                                anchor='center',
@@ -99,8 +99,7 @@ resim1 = ImageTk.PhotoImage(Image.open(ilk_uc[0]))
 resim2 = ImageTk.PhotoImage(Image.open(ilk_uc[1]))
 resim3 = ImageTk.PhotoImage(Image.open(ilk_uc[2]))
 resim4 = ImageTk.PhotoImage(
-    Image.open(
-        'C:\\Users\\baris\\Desktop\\WIP\\Eyewitness_Identification_Project-main\\Eyewitness_Identification_Project-main\\Target\\S48.jpg'))
+    Image.open('S48.jpg'))
 
 buton = tk.Button(form, image=resim1)
 buton.pack(side=tk.LEFT)

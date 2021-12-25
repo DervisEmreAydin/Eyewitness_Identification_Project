@@ -5,7 +5,6 @@ import conf
 from tkinter import filedialog
 from popup import Popup
 from screen import Screen
-
 global index
 index = 0
 
@@ -13,6 +12,7 @@ print("111111111111111111")
 popupArr = list()
 font = ("Arial", 20, "bold")
 print("asdfasdfasdfdas")
+
 
 def show_warning_popups():
     print("YYYYYYY")
@@ -69,8 +69,7 @@ def show_final_popup():
     window = popup.getWindow()
     Button(window, text=conf.final_popup_accept,
            command=lambda: handle_accept_button()).place(relx=0.25, rely=0.75, width=200, height=120, anchor='center')
-    Button(window, text=conf.final_popup_reject,
-           command=lambda: handle_reject_button()).place(relx=0.75, rely=0.75, width=200, height=120, anchor='center')
+    Button(window, text=conf.final_popup_reject,command=lambda: handle_reject_button()).place(relx=0.75, rely=0.75, width=200, height=120, anchor='center')
 
 
 def handle_consent_button():
@@ -105,18 +104,17 @@ def handle_button_witness_submit():
         error_popup = Popup(conf.witness_error_popup_text, conf.confirmation_button_text, conf.error_popup_title)
         error_popup.openWindow()
 
-
-
-
 # Create the window
 print("looooooooo")
 page2Screen = Screen(conf.lineup_logo_main)
 page2Window = page2Screen.getWindow()
 print("laaaaaaaaaaaaa")
+
 # Put the small logo
 background_image_small = ImageTk.PhotoImage(Image.open(conf.lineup_logo_small))
 background_label_small = Label(page2Window, image=background_image_small)
-background_label_small.place(x=0, y=0, relx=0.11, rely=0.020, anchor='ne')
+background_label_small.place(x=0, y=0, relx=0.95, rely=0.880, anchor='ne')
+
 
 # Put the Entry and Labels for Police related information
 paramList = conf.list_witness_parameters
@@ -146,11 +144,12 @@ for param in paramList:
         relx_label += 0.33
         relx_entry += 0.33
         print(relx_entry, relx_entry, rely)
+
 # Button for submitting the entries and image selection
 button_police_submit = Button(page2Window, text=conf.police_submit_button_text,
                               command=lambda: handle_button_witness_submit()).place(relx=0.5, rely=0.82,
-                                                                                    anchor='center',
-                                                                                    height=30, width=70)
+                                                                                    anchor='center')
+
 
 # Popups
 
@@ -159,7 +158,6 @@ for x in range(6):
     popup_police_instruction = Popup(conf.popup_msg[x], conf.confirmation_button_text, conf.popup_title, 1)
     popup_police_instruction.setLabelFont(font)
     popupArr.append(popup_police_instruction)
-
 
 
 # Halt das Fenster offen

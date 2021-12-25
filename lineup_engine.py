@@ -22,11 +22,10 @@ def getMostSimilarImages(target):
     df = DeepFace.find(img_path=target, db_path='FaceDataset',
                    model_name='VGG-Face', model=model)
     print("Deepface find bitti")
-    df.head()
-    product = df['identity'].values.tolist()
-    #print(product[0:10])
 
-    Analiz = DeepFace.analyze(product[0:10])
+    AllSmilarImages = df['identity'].values.tolist()
+
+    Analiz = DeepFace.analyze(AllSmilarImages[-15:])
     list(Analiz)
 
     Analiz.get('instance_1')
@@ -37,27 +36,47 @@ def getMostSimilarImages(target):
     Analiz4 = Analiz.get('instance_4')
     Analiz5 = Analiz.get('instance_5')
     Analiz6 = Analiz.get('instance_6')
+    Analiz7 = Analiz.get('instance_7')
+    Analiz8 = Analiz.get('instance_8')
+    Analiz9 = Analiz.get('instance_9')
+    Analiz10 = Analiz.get('instance_10')
+    Analiz11 = Analiz.get('instance_11')
+    Analiz12 = Analiz.get('instance_12')
+    Analiz13 = Analiz.get('instance_13')
+    Analiz14 = Analiz.get('instance_14')
+    Analiz15 = Analiz.get('instance_15')
 
-    Irklist = [Analiz1['dominant_race'],
+
+    Racelist = [Analiz1['dominant_race'],
                Analiz2['dominant_race'],
                Analiz3['dominant_race'],
                Analiz4['dominant_race'],
                Analiz5['dominant_race'],
-               Analiz6['dominant_race']]
+               Analiz6['dominant_race'],
+                Analiz7['dominant_race'],
+                Analiz8['dominant_race'],
+                Analiz9['dominant_race'],
+                Analiz10['dominant_race'],
+                Analiz11['dominant_race'],
+                Analiz12['dominant_race'],
+                Analiz13['dominant_race'],
+                Analiz14['dominant_race'],
+                Analiz15['dominant_race'],
+                ]
 
-    print(Irklist)
+    print(Racelist)
 
-    birlestir = zip(product, Irklist)
-    birlesmislist = list(birlestir)
-    print(birlesmislist)
+    combine = zip(AllSmilarImages[-15:], Racelist)
+    combinelist = list(combine)
+    print(combinelist)
 
-    sonliste = []  # hedef kişinin daminant ırkı ile eşleşen kişilerin dahil olduğu liste
-    for a, b in birlesmislist:
+    sonliste = []  # hedef kişinin dominant ırkı ile eşleşen kişilerin dahil olduğu liste
+    for a, b in combinelist:
         if b == resp["dominant_race"]:
             sonliste += [a]
     print(sonliste)
-    sonliste = sonliste[0:3]
-    sonliste.append(target)
-    random.shuffle(sonliste)
+    ilk_uc = sonliste[-10:]
+    #ilk_uc.append(target)
+    random.shuffle(ilk_uc)
     print("Bitti")
-    return sonliste
+    return ilk_uc
