@@ -218,7 +218,7 @@ button_police_submit = Button(page1Window, text=conf.police_submit_button_text,
                               command=lambda: handle_button_police_submit()).place(x=0, y=0, relx=0.70, rely=0.27,
                                                                                 anchor='center')
 
-#Uygunluk Analizi Buttons
+#Analyze Buttons
 
 button_analyze_stage = Button(page1Window, text="Analiz Bölümüne Geçmek İçin Buraya Tıklayınız",
                             command=lambda: handle_button_analyze_stage()).place(x=0, y=0, relx=0.60, rely=0.88,
