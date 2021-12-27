@@ -24,7 +24,6 @@ def handle_button_remove_image():
 
 
 # Uygunluk Analizi
-
 def S_handle_button_image_upload():
     print("button_image_upload is pressed")
     filename = filedialog.askopenfilename(initialdir="/",
@@ -127,13 +126,11 @@ def F5_handle_button_remove_image():
         conf.f5_image_path = ""
 
 
-# Uygunluk analizi son
-
-def handle_button_gec_image():
+def handle_button_skip_page():
     print("button_remove_image is pressed")
     page1Screen.destroyWindow()
     page1Screen.__del__()
-    import page1b
+    import page1cc
 
 
 def handle_button_analyze_stage():
@@ -163,6 +160,7 @@ def handle_button_police_submit():
         import page1b
     else:
         conf.dict_police_parameters = {}
+        print("Invalid Inputs")
         error_popup = Popup(conf.police_error_popup_text, conf.confirmation_button_text, conf.error_popup_title)
         error_popup.openWindow()
 
@@ -213,7 +211,7 @@ button_remove_file = Button(page1Window, text=conf.button_file_remove_text,
                             command=lambda: handle_button_remove_image()).place(x=0, y=0, relx=0.60, rely=0.27,
                                                                                 anchor='center')
 button_remove_file = Button(page1Window, text="gec",
-                            command=lambda: handle_button_gec_image()).place(x=0, y=0, relx=0.00, rely=0.27,
+                            command=lambda: handle_button_skip_page()).place(x=0, y=0, relx=0.05, rely=0.27,
                                                                              anchor='center')
 
 # Button for submitting the entries and image selection
@@ -222,7 +220,6 @@ button_police_submit = Button(page1Window, text=conf.police_submit_button_text,
                                                                                    anchor='center')
 
 # Analyze Buttons
-
 button_analyze_stage = Button(page1Window, text="Analiz Bölümüne Geçmek İçin Buraya Tıklayınız",
                               command=lambda: handle_button_analyze_stage()).place(x=0, y=0, relx=0.60, rely=0.88,
                                                                                    anchor='center')

@@ -1,15 +1,13 @@
-from tkinter import *
-from tkinter import filedialog
 import random
-from PIL import Image, ImageTk
 import tkinter as tk
-import conf
-from page2 import popupArr
-from popup import Popup
-from screen import Screen
-import lineup_engine
-import pyaudio
 import wave
+from tkinter import *
+
+import pyaudio
+from PIL import Image, ImageTk
+
+import conf
+from screen import Screen
 
 # Create the window
 page3Screen = Screen(conf.lineup_logo_main)
@@ -21,8 +19,8 @@ background_label_small = Label(page3Window, image=background_image_small)
 background_label_small.place(x=0, y=0, relx=0.95, rely=0.880, anchor='ne')
 
 # Put information label
-label_info = Label(page3Window,text="Aşağıdaki fotoğraflar içerisinde size tanıdık gelen birisi varsa lütfen o fotoğrafın üzerine tıklayınız/seçiniz",
-                   font=('calibre', 17, 'bold')).place(x=0,y=0,relx=0.14,rely=0.10)
+label_info = Label(page3Window, text="Aşağıdaki fotoğraflar içerisinde size tanıdık gelen birisi varsa lütfen o fotoğrafın üzerine tıklayınız/seçiniz",
+                   font=('calibre', 17, 'bold')).place(x=0, y=0, relx=0.14, rely=0.10)
 
 # Get the image from deepface
 #image_path = conf.suspect_image_path
