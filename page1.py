@@ -294,9 +294,9 @@ F5_button_remove_file = Button(page1Window, text=conf.button_file_remove_text,
 
 # Warning popup for the user
 fontStyle = ("Arial", 15, "bold")
-popup_police_instruction = Popup(conf.police_warning_info, conf.confirmation_button_text, "Uyarı!")
-popup_police_instruction.setLabelFont(fontStyle)
-popup_police_instruction.openWindow()
+#popup_police_instruction = Popup(conf.police_warning_info, conf.confirmation_button_text, "Uyarı!")
+#popup_police_instruction.setLabelFont(fontStyle)
+#popup_police_instruction.openWindow()
 
 # Halt das Fenster offen
 page1Window.mainloop()

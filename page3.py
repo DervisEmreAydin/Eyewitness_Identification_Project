@@ -4,7 +4,7 @@ from PIL import Image, ImageTk
 import tkinter as tk
 import conf
 import data
-from VoiceRecorder import VoiceRecorder
+from voiceRecorder import VoiceRecorder
 from screen import Screen
 
 # Create the window
@@ -82,10 +82,10 @@ def handle_button_witness_choice(index):
         Button(confidence_s, text="ÇOK", font=('calibre', 13, 'bold'),
                command=lambda: [handle_button_confidence_choice("high")]).place(relx=0.75, rely=0.80, anchor='center')
         Button(confidence_s, text="Fotoğraflara Geri Dön", font=('calibre', 13, 'bold'), bg='white',
-               command=lambda: [confidence_s.destroy(), removeUserChoice(), createPhotoSelectionWindow()]).place(relx=0.50, rely=0.90, anchor='center')
+               command=lambda: [confidence_s.destroy(), removeUserChoice(), createPhotoSelectionButtons()]).place(relx=0.50, rely=0.90, anchor='center')
 
 
-def createPhotoSelectionWindow():
+def createPhotoSelectionButtons():
     #  XXX: Needs clean-up as well a for loop should be enough to create the buttons
     l_button_1 = tk.Button(page3Window, image=photoImageList[0], command=lambda: handle_button_witness_choice(0))
     l_button_1.place(x=0, y=0, relx=0.31, rely=0.35, anchor='center')
@@ -113,7 +113,7 @@ def createPhotoSelectionWindow():
     l_button_no_chosen.place(x=0, y=0, relx=0.50, rely=0.90, anchor='center')
 
 
-createPhotoSelectionWindow()
+createPhotoSelectionButtons()
 # Create an object of the ProgramGUI class to begin the program.
 guiAUD = VoiceRecorder(page3Window)
 guiAUD.start_record()

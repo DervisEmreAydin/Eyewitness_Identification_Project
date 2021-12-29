@@ -14,9 +14,9 @@ f3_image_path = ""
 f4_image_path = ""
 f5_image_path = ""
 
-dict_witness_parameters = {}
-dict_police_parameters = {}
-final_lineup_list = []
+#dict_witness_parameters = {}
+#dict_police_parameters = {}
+#final_lineup_list = []
 
 dict_police_parameters = {
     'Soruşturma Numarası: ': '123456789', 'Suç Tipi: ': 'Cinayet', 'Olay Yeri:': 'Tarlabasi',
@@ -26,15 +26,14 @@ dict_police_parameters = {
     'Etnik Kökeni': 'Türk'
  }
 dict_witness_parameters = {'Tanik Adi': 'sdf', 'Tanik TCKN': 'sdf', 'Esgal Tarifi': 'sdf'}
-witness_image_choice = ""
-witness_confidence = ""
+witness_image_choice = "FaceDataset/v3_0868335.jpg"
+witness_confidence = "High"
 
-
-#final_lineup_list = ['FaceDataset/v3_0868335.jpg', 'FaceDataset/v3_0495484.jpg', 'FaceDataset/v3_0561451.jpg', 'FaceDataset/v3_0925882.jpg', 'FaceDataset/v3_0169122.jpg']
-#suspect_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\FaceDataset\\v3_0003928.jpg"
-#f1_image_path = "FaceDataset/v3_0868335.jpg"
-#f2_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
-#f3_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
-#f4_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
-#f5_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\\GB6\\2.png"
+final_lineup_list = ['FaceDataset/v3_0868335.jpg', 'FaceDataset/v3_0495484.jpg', 'FaceDataset/v3_0561451.jpg', 'FaceDataset/v3_0925882.jpg', 'FaceDataset/v3_0169122.jpg']
+suspect_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\FaceDataset\\v3_0003928.jpg"
+f1_image_path = "FaceDataset/v3_0868335.jpg"
+f2_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
+f3_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
+f4_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\GB6\\2.png"
+f5_image_path = "C:\\Users\\baris\\PycharmProjects\\Eyewitness_Identification_Project\\\GB6\\2.png"
 
