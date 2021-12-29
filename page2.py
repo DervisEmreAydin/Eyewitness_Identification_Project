@@ -6,7 +6,6 @@ from popup import Popup
 from screen import Screen
 
 global index
-
 index = 0
 popupArr = list()
 font = ("Arial", 20, "bold")

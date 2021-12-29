@@ -46,9 +46,10 @@ popup_msg6 = "Uyari 6"
 popup_title = "Uyari !!!"
 popup_reject = "Lütfen, polis ile konusun"
 popup_wrong_password = "Password yanlis!"
+
 witness_statement_confidence = "Seçiminizden ne kadar eminsiniz?"
 lineup_warning = "Fotoğraflı teşhis dizisinin oluşturulabilmesi için \n 5 (beş) dolgu kişinin seçilmesi gerekmektedir."
-
+final_instruction = "Lütfen bu işlemin detaylarını \n veya \n bir teşhis yaptıysanız kimi seçtiğinizi \n bu soruşturmadaki başka bir tanıkla \n paylaşmayın!"
 
 # Password for the police
 password_police = "123456"

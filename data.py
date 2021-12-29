@@ -18,12 +18,16 @@ dict_witness_parameters = {}
 dict_police_parameters = {}
 final_lineup_list = []
 
-# dict_police_parameters = {'Soruşturma Numarası: ': '123456789', 'Suç Tipi: ': 'Cinayet', 'Olay Yeri:': 'Tarlabasi',
-# 'Olay Zamanı:': '12.20.2021', 'Şüpheli Sayısı:': '1', 'Tanık Sayısı: ': '4', 'Polis Memurunun Adı:': 'Nevzat',
-# 'Polis Memurunun Soyadı:': 'Baskomer', 'PM Sicil Numarası: ': '987654321', 'Tanık TC KN:': '12345678999',
-# 'Tanığın Adı:': 'Bahattin', 'Tanığın Soyadı: ': 'Kocaman', 'Doğum Tarihi:': '01.01.1970', 'Cinsiyeti': 'Erkek',
-# 'Etnik Kökeni': 'Türk'}
-#dict_witness_parameters = {'Tanik Adi': 'sdf', 'Tanik TCKN': 'sdf', 'Esgal Tarifi': 'sdf'}
+dict_police_parameters = {
+    'Soruşturma Numarası: ': '123456789', 'Suç Tipi: ': 'Cinayet', 'Olay Yeri:': 'Tarlabasi',
+    'Olay Zamanı:': '12.20.2021', 'Şüpheli Sayısı:': '1', 'Tanık Sayısı: ': '4', 'Polis Memurunun Adı:': 'Nevzat',
+    'Polis Memurunun Soyadı:': 'Baskomer', 'PM Sicil Numarası: ': '987654321', 'Tanık TC KN:': '12345678999',
+    'Tanığın Adı:': 'Bahattin', 'Tanığın Soyadı: ': 'Kocaman', 'Doğum Tarihi:': '01.01.1970', 'Cinsiyeti': 'Erkek',
+    'Etnik Kökeni': 'Türk'
+ }
+dict_witness_parameters = {'Tanik Adi': 'sdf', 'Tanik TCKN': 'sdf', 'Esgal Tarifi': 'sdf'}
+witness_image_choice = ""
+witness_confidence = ""
 
 
 #final_lineup_list = ['FaceDataset/v3_0868335.jpg', 'FaceDataset/v3_0495484.jpg', 'FaceDataset/v3_0561451.jpg', 'FaceDataset/v3_0925882.jpg', 'FaceDataset/v3_0169122.jpg']
