@@ -5,6 +5,7 @@ list_police_parameters = ["Soruşturma Numarası", "Suç Tipi", "Olay Yeri", "Ol
 
 param_esgal_tarifi = "Esgal tarifi"
 list_witness_parameters = ["Tanik Adi", "Tanik TCKN", param_esgal_tarifi]
+#list_witness_parameters = ["Soruşturma Numarası", "A. TANIK BİLGİLERİ","Tanık TCKN","Tanık Ad","Tanık Soyad","Tanık Cinsiyet","Tanık Doğum Tarihi","Nüfus Kayıt Bilgileri","İkamet Adresi","İletişim Bilgileri","B. OLAY BİLGİLERİ","Olayın mağduru musunuz?","Olaya tanık olduğunuz tarih/saat\nnedir?","Olayı doğrudan gördünüz mü?","Olayı ne kadar süre ile \ngözlemlediniz?","Faile olan uzaklığınız ne kadardı?","Gözlük veya lens kullanıyor \nmusunuz?","Evetse, olay anında kullanıyor \nmuydunuz?","Olay günü bilincinizi etkileyecek \nbir ilaç, madde veya alkol aldınız mı?","Evetse, neydi? Ne zaman ve ne\nkadar kullanmıştınız?","Fiziksel bir şiddet olayına \ntanık oldunuz mu?","Silah kullanıldı mı?","Kullanıldıysa, ne tür bir silah \nkullanıldı?","Olayda size yönelmiş bir tehdit \nveya şiddet eylemi mevcut muydu?","C. FAİL BİLGİLERİ","Faili olay öncesinde tanıyor\n muydunuz?","Şüphelinin resmini teşhis\nişleminden önce gördünüz mü?","Gördüyseniz nerede?\nAranıyor ilanı, gazete, sosyal medya vb.","Şüphelinin robot resminin \nçizilmesine yardımcı  oldunuz mu?",param_esgal_tarifi]
 
 suspect_image_path = ""
 f1_image_path = ""
