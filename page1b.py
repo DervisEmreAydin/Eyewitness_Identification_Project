@@ -2,6 +2,7 @@ from tkinter import *
 from PIL import Image, ImageTk
 import tkinter as tk
 import conf
+import data
 from popup import Popup
 from screen import Screen
 import lineup_engine
@@ -21,7 +22,8 @@ label_info = Label(page1bWindow,
                    font=('calibre', 17, 'bold')).place(x=0, y=0, relx=0.10, rely=0.11)
 
 # Get the image from deepface
-image_path = conf.suspect_image_path
+image_path = data.suspect_image_path
+print()
 final_image_list = lineup_engine.getMostSimilarImages(image_path)
 print("Final Image List = ", final_image_list)
 relx = 0.30
@@ -42,7 +44,7 @@ resim10 = ImageTk.PhotoImage(Image.open(final_image_list[9]))
 
 # Final Lineup List
 lineuplist = []
-lineuplist = conf.final_lineup_list
+lineuplist = data.final_lineup_list
 
 
 # Button1
@@ -274,6 +276,7 @@ button10.num_clicked = 0
 def generate_lineup_button():
     if len(lineuplist) == 5:
         page1bScreen.destroyWindow()
+        data.final_lineup_list =lineuplist
         import page2
     else:
         fontStyle = ("Arial", 20, "bold")

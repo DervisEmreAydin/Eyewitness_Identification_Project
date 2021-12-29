@@ -1,6 +1,7 @@
 from tkinter import *
 from PIL import Image, ImageTk
 import conf
+import data
 from popup import Popup
 from screen import Screen
 
@@ -85,20 +86,20 @@ def handle_consent_button():
 def handle_button_witness_submit():
     flag = 0
     dict_param_entry = {name: entry.get() for name, entry in list_param_entry}
-    dict_param_entry[conf.param_esgal_tarifi] = param_esgal.get("1.0", 'end-1c')
-    for witness_param in conf.list_witness_parameters:
+    dict_param_entry[data.param_esgal_tarifi] = param_esgal.get("1.0", 'end-1c')
+    for witness_param in data.list_witness_parameters:
         entry_value = dict_param_entry[witness_param]
         if entry_value == "":
             flag = 1
             break
         else:
-            conf.dict_witness_parameters[witness_param] = entry_value
+            data.dict_witness_parameters[witness_param] = entry_value
     if flag == 0:
         print("OK")
-        print(conf.dict_witness_parameters)
+        print(data.dict_witness_parameters)
         show_warning_popups()
     else:
-        conf.dict_witness_parameters = {}
+        data.dict_witness_parameters = {}
         error_popup = Popup(conf.witness_error_popup_text, conf.confirmation_button_text, conf.error_popup_title)
         error_popup.openWindow()
 
@@ -113,7 +114,7 @@ background_label_small = Label(page2Window, image=background_image_small)
 background_label_small.place(x=0, y=0, relx=0.95, rely=0.880, anchor='ne')
 
 # Put the Entry and Labels for Police related information
-paramList = conf.list_witness_parameters
+paramList = data.list_witness_parameters
 relx_label = conf.relx_label
 relx_entry = conf.relx_entry
 rely = conf.rely
@@ -124,7 +125,7 @@ for param in paramList:
           justify="left").place(x=0, y=0, relx=relx_label, rely=rely)
     height = param.count('\n') + 1
 
-    if param == conf.param_esgal_tarifi:
+    if param == data.param_esgal_tarifi:
         entry = Text(page2Window, font=('calibre', 10, 'normal'), width=40, height=8)
         entry.place(x=0, y=0, relx=relx_label, rely=rely + 0.03)
         param_esgal = entry

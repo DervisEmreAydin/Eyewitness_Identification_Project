@@ -28,12 +28,6 @@ filler_image_upload_text = "Lütfen dolgu kişinin fotografini yükleyin. Sadece
 image_upload_menu_info = "Süpheli Fotografi Yükleme Arayüzü"
 filler_image_upload_menu_info = "Dolgu Fotografi Yükleme Arayüzü"
 popup_size = ""
-suspect_image_path = ""
-f1_image_path = ""
-f2_image_path = ""
-f3_image_path = ""
-f4_image_path = ""
-f5_image_path = ""
 police_error_popup_text = "Lütfen tüm verileri giriniz ve süpheli resmini yükleyiniz!"
 witness_error_popup_text = "Lütfen tüm verileri giriniz"
 error_popup_title = "Hata"
@@ -55,15 +49,7 @@ popup_wrong_password = "Password yanlis!"
 witness_statement_confidence = "Seçiminizden ne kadar eminsiniz?"
 lineup_warning = "Fotoğraflı teşhis dizisinin oluşturulabilmesi için \n 5 (beş) dolgu kişinin seçilmesi gerekmektedir."
 
-# Give the parameter for the final report
-dict_police_parameters = {}
-list_police_parameters = ["Soruşturma Numarası: ", "Suç Tipi: ", "Olay Yeri:", "Olay Zamanı:","Şüpheli Sayısı:","Tanık Sayısı: ","Polis Memurunun Adı:","Polis Memurunun Soyadı:","PM Sicil Numarası: ","Tanık TC KN:","Tanığın Adı:","Tanığın Soyadı: ","Doğum Tarihi:","Cinsiyeti","Etnik Kökeni"]
-dict_witness_parameters = {}
-param_esgal_tarifi = "Esgal Tarifi"
-# Her 38 harften sonra \n ile bölünmeli
-#list_witness_parameters = ["Tanik Adi", "Tanik TCKN","a1","b1","c1","a2","b2","c2","a3","b3","c3","a1 sdfds \ndsfsdf sf \nasdfsd","b","c","a","b","c","a","b","c","a","b","c","asadfsd asdfasd faasdfasdf asdf sasd fsdfsd fsadasdf \n asdf sdf asdfasdasd asdf ssd sdfsdasdfg w","b","c",param_esgal_tarifi]
-list_witness_parameters = ["Tanik Adi", "Tanik TCKN",param_esgal_tarifi]
-final_lineup_list = []
+
 # Password for the police
 password_police = "123456"
 

@@ -5,6 +5,7 @@ from deepface.basemodels import VGGFace, OpenFace, Facenet, FbDeepFace
 from PIL import Image, ImageTk
 import tkinter as tk
 import conf
+import data
 from popup import Popup
 from screen import Screen
 import lineup_engine
@@ -20,13 +21,13 @@ background_label_small = Label(page1ccWindow, image=background_image_small)
 background_label_small.place(x=0, y=0, relx=0.95, rely=0.880, anchor='ne')
 
 # Deep Face Verify Function
-verify1= DeepFace.verify(conf.suspect_image_path,conf.f1_image_path,
-                       model_name= "VGG-Face",
-                       distance_metric= "cosine")
-verify2= DeepFace.verify(conf.suspect_image_path,conf.f2_image_path)
-verify3= DeepFace.verify(conf.suspect_image_path,conf.f3_image_path)
-verify4= DeepFace.verify(conf.suspect_image_path,conf.f4_image_path)
-verify5= DeepFace.verify(conf.suspect_image_path,conf.f5_image_path)
+verify1= DeepFace.verify(data.suspect_image_path, data.f1_image_path,
+                         model_name= "VGG-Face",
+                         distance_metric= "cosine")
+verify2= DeepFace.verify(data.suspect_image_path, data.f2_image_path)
+verify3= DeepFace.verify(data.suspect_image_path, data.f3_image_path)
+verify4= DeepFace.verify(data.suspect_image_path, data.f4_image_path)
+verify5= DeepFace.verify(data.suspect_image_path, data.f5_image_path)
 
 verify1_list = [verify1.get('verified'),
                 verify1.get('distance'),
@@ -60,15 +61,15 @@ verify5_list = [verify5.get('verified'),
                 verify5.get('similarity_metric')]
 
 # Button images
-suspect = ImageTk.PhotoImage(Image.open(conf.suspect_image_path))
-filler1 = ImageTk.PhotoImage(Image.open(conf.f1_image_path))
-filler2 = ImageTk.PhotoImage(Image.open(conf.f2_image_path))
-filler3 = ImageTk.PhotoImage(Image.open(conf.f3_image_path))
-filler4 = ImageTk.PhotoImage(Image.open(conf.f4_image_path))
-filler5 = ImageTk.PhotoImage(Image.open(conf.f5_image_path))
+suspect = ImageTk.PhotoImage(Image.open(data.suspect_image_path))
+filler1 = ImageTk.PhotoImage(Image.open(data.f1_image_path))
+filler2 = ImageTk.PhotoImage(Image.open(data.f2_image_path))
+filler3 = ImageTk.PhotoImage(Image.open(data.f3_image_path))
+filler4 = ImageTk.PhotoImage(Image.open(data.f4_image_path))
+filler5 = ImageTk.PhotoImage(Image.open(data.f5_image_path))
 
 lineuplist = []
-lineuplist = conf.final_lineup_list
+lineuplist = data.final_lineup_list
 
 #Suspect Button
 
@@ -89,9 +90,9 @@ def funct1a():                         # func1a hangi ögenin listeye eklendiği
 
 def funct1b():                       # func1b tıklanan fotoğrafı son lineup listesine ekliyor ve ikinci tıklamada listeden çıkarıyor
     if button1.num_clicked % 2:      # tıklanan ögeyi lineup listesine ekle
-        lineuplist.append(conf.f1_image_path)
+        lineuplist.append(data.f1_image_path)
     else:
-        lineuplist.remove(conf.f1_image_path)     # lineup listesine eklenen ögeyi çıkar
+        lineuplist.remove(data.f1_image_path)     # lineup listesine eklenen ögeyi çıkar
 
     print(lineuplist)
 
@@ -122,9 +123,9 @@ def funct2a():
 
 def funct2b():
     if button2.num_clicked % 2:
-        lineuplist.append(conf.f2_image_path)
+        lineuplist.append(data.f2_image_path)
     else:
-        lineuplist.remove(conf.f2_image_path)
+        lineuplist.remove(data.f2_image_path)
 
     print(lineuplist)
 
@@ -153,9 +154,9 @@ def funct3a():
 
 def funct3b():
     if button3.num_clicked % 2:
-        lineuplist.append(conf.f3_image_path)
+        lineuplist.append(data.f3_image_path)
     else:
-        lineuplist.remove(conf.f3_image_path)
+        lineuplist.remove(data.f3_image_path)
 
     print(lineuplist)
 
@@ -186,9 +187,9 @@ def funct4a():
 
 def funct4b():
     if button4.num_clicked % 2:
-        lineuplist.append(conf.f4_image_path)
+        lineuplist.append(data.f4_image_path)
     else:
-        lineuplist.remove(conf.f4_image_path)
+        lineuplist.remove(data.f4_image_path)
 
     print(lineuplist)
 
@@ -219,9 +220,9 @@ def funct5a():
 
 def funct5b():
     if button5.num_clicked % 2:
-        lineuplist.append(conf.f5_image_path)
+        lineuplist.append(data.f5_image_path)
     else:
-        lineuplist.remove(conf.f5_image_path)
+        lineuplist.remove(data.f5_image_path)
 
     print(lineuplist)
 

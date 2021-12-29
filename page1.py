@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import filedialog
 from PIL import Image, ImageTk
 import conf
+import data
 from popup import Popup
 from screen import Screen
 
@@ -13,14 +14,14 @@ def handle_button_image_upload():
                                           filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if filename != "":
         label_file_explorer.configure(text="Dosya:" + filename + " yüklendi.")
-        conf.suspect_image_path = filename
+        data.suspect_image_path = filename
 
 
 def handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.suspect_image_path != "":
+    if data.suspect_image_path != "":
         label_file_explorer.configure(text=conf.image_upload_text)
-        conf.suspect_image_path = ""
+        data.suspect_image_path = ""
 
 
 # Uygunluk Analizi
@@ -31,14 +32,14 @@ def S_handle_button_image_upload():
                                           filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if filename != "":
         S_label_file_explorer.configure(text="Dosya:" + filename + " yüklendi.")
-        conf.suspect_image_path = filename
+        data.suspect_image_path = filename
 
 
 def S_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.suspect_image_path != "":
+    if data.suspect_image_path != "":
         S_label_file_explorer.configure(text=conf.image_upload_text)
-        conf.suspect_image_path = ""
+        data.suspect_image_path = ""
 
 
 def F1_handle_button_image_upload():
@@ -48,14 +49,14 @@ def F1_handle_button_image_upload():
                                     filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if f1 != "":
         F1_label_file_explorer.configure(text="Dosya:" + f1 + " yüklendi.")
-        conf.f1_image_path = f1
+        data.f1_image_path = f1
 
 
 def F1_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.f1_image_path != "":
+    if data.f1_image_path != "":
         F1_label_file_explorer.configure(text=conf.filler_image_upload_text)
-        conf.f1_image_path = ""
+        data.f1_image_path = ""
 
 
 def F2_handle_button_image_upload():
@@ -65,14 +66,14 @@ def F2_handle_button_image_upload():
                                     filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if f2 != "":
         F2_label_file_explorer.configure(text="Dosya:" + f2 + " yüklendi.")
-        conf.f2_image_path = f2
+        data.f2_image_path = f2
 
 
 def F2_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.f2_image_path != "":
+    if data.f2_image_path != "":
         F2_label_file_explorer.configure(text=conf.filler_image_upload_text)
-        conf.f2_image_path = ""
+        data.f2_image_path = ""
 
 
 def F3_handle_button_image_upload():
@@ -82,14 +83,14 @@ def F3_handle_button_image_upload():
                                     filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if f3 != "":
         F3_label_file_explorer.configure(text="Dosya:" + f3 + " yüklendi.")
-        conf.f3_image_path = f3
+        data.f3_image_path = f3
 
 
 def F3_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.f3_image_path != "":
+    if data.f3_image_path != "":
         F3_label_file_explorer.configure(text=conf.filler_image_upload_text)
-        conf.f3_image_path = ""
+        data.f3_image_path = ""
 
 
 def F4_handle_button_image_upload():
@@ -99,14 +100,14 @@ def F4_handle_button_image_upload():
                                     filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if f4 != "":
         F4_label_file_explorer.configure(text="Dosya:" + f4 + " yüklendi.")
-        conf.f4_image_path = f4
+        data.f4_image_path = f4
 
 
 def F4_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.f4_image_path != "":
+    if data.f4_image_path != "":
         F4_label_file_explorer.configure(text=conf.filler_image_upload_text)
-        conf.f4_image_path = ""
+        data.f4_image_path = ""
 
 
 def F5_handle_button_image_upload():
@@ -116,21 +117,21 @@ def F5_handle_button_image_upload():
                                     filetypes=[("Image Files", ('.png', '.jfif', '.jpg', '.jpeg'))])
     if f5 != "":
         F5_label_file_explorer.configure(text="Dosya:" + f5 + " yüklendi.")
-        conf.f5_image_path = f5
+        data.f5_image_path = f5
 
 
 def F5_handle_button_remove_image():
     print("button_remove_image is pressed")
-    if conf.f5_image_path != "":
+    if data.f5_image_path != "":
         F5_label_file_explorer.configure(text=conf.filler_image_upload_text)
-        conf.f5_image_path = ""
+        data.f5_image_path = ""
 
 
 def handle_button_skip_page():
     print("button_remove_image is pressed")
-    page1Screen.destroyWindow()
-    page1Screen.__del__()
-    import page1cc
+    #page1Screen.destroyWindow()
+    #page1Screen.__del__()
+    handle_button_police_submit(1)
 
 
 def handle_button_analyze_stage():
@@ -140,26 +141,32 @@ def handle_button_analyze_stage():
     import page1cc
 
 
-def handle_button_police_submit():
+def handle_button_police_submit(skip):
     flag = 0
     dict_param_entry = {name: entry.get() for name, entry in list_param_entry}
-    for param in conf.list_police_parameters:
+    for param in data.list_police_parameters:
         entry_value = dict_param_entry[param]
-        if entry_value == "":
-            flag = 1
-            break
+        if skip == 0:
+            if entry_value == "":
+                flag = 1
+                break
+            else:
+                data.dict_police_parameters[param] = entry_value
         else:
-            conf.dict_police_parameters[param] = entry_value
-    if conf.suspect_image_path == "":
+            data.dict_police_parameters[param] = "XXX"
+    if data.suspect_image_path == "":
         flag = 1
     if flag == 0:
         print("OK")
-        print(conf.dict_police_parameters)
+        print(data.dict_police_parameters)
         page1Screen.destroyWindow()
         page1Screen.__del__()
-        import page1b
+        if skip == 0:
+            import page1b
+        else:
+            import page3
     else:
-        conf.dict_police_parameters = {}
+        data.dict_police_parameters = {}
         print("Invalid Inputs")
         error_popup = Popup(conf.police_error_popup_text, conf.confirmation_button_text, conf.error_popup_title)
         error_popup.openWindow()
@@ -187,7 +194,7 @@ PAlabel_info = Label(page1Window, text="Fotoğraf Dizisi Uygunluk Analizi",
                      font=('calibre', 17, 'bold'), borderwidth=1, relief="solid").place(x=0, y=0, relx=0.49, rely=0.32)
 
 # Put the Entry and Labels for Police related information
-paramList = conf.list_police_parameters
+paramList = data.list_police_parameters
 relx_label = conf.page1_relx_label
 relx_entry = conf.page1_relx_entry
 rely = conf.page1_rely
@@ -216,8 +223,8 @@ button_remove_file = Button(page1Window, text="gec",
 
 # Button for submitting the entries and image selection
 button_police_submit = Button(page1Window, text=conf.police_submit_button_text,
-                              command=lambda: handle_button_police_submit()).place(x=0, y=0, relx=0.70, rely=0.27,
-                                                                                   anchor='center')
+                              command=lambda: handle_button_police_submit(0)).place(x=0, y=0, relx=0.70, rely=0.27,
+                                                                                    anchor='center')
 
 # Analyze Buttons
 button_analyze_stage = Button(page1Window, text="Analiz Bölümüne Geçmek İçin Buraya Tıklayınız",

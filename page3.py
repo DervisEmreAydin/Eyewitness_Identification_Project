@@ -1,13 +1,16 @@
-import random
-import tkinter as tk
-import wave
 from tkinter import *
-
-import pyaudio
+from tkinter import filedialog
+import random
 from PIL import Image, ImageTk
-
+import tkinter as tk
 import conf
+import data
+from page2 import popupArr
+from popup import Popup
 from screen import Screen
+import lineup_engine
+import pyaudio
+import wave
 
 # Create the window
 page3Screen = Screen(conf.lineup_logo_main)
@@ -31,9 +34,9 @@ label_info = Label(page3Window, text="Aşağıdaki fotoğraflar içerisinde size
 #counter = 0
 
 # Create Eyewitness Lineup List
-suspect_image_path = conf.suspect_image_path
+suspect_image_path = data.suspect_image_path
 #EyewitnessLineupList = ['C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/GB6/1.png', 'C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/GB6/4.png', 'C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/GB6/5.png', 'C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/GB6/2.png', 'C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/GB6/6.png', 'C:/Users/Lenova/Desktop/Eyewitness_Identification_Project-main/FaceDataset/v3_0003928.jpg']
-EyewitnessLineupList = conf.final_lineup_list
+EyewitnessLineupList = data.final_lineup_list
 EyewitnessLineupList.append(suspect_image_path)
 random.shuffle(EyewitnessLineupList)
 print(EyewitnessLineupList)
@@ -205,7 +208,7 @@ l_button_no_chosen.place(x=0, y=0, relx=0.50, rely=0.90, anchor='center')
 
 class RecAUD:
 
-    def __init__(self, chunk=3024, frmat=pyaudio.paInt16, channels=2, rate=44100, py=pyaudio.PyAudio()):
+    def __init__(self, chunk=3024, frmat=pyaudio.paInt16, channels=1, rate=44100, py=pyaudio.PyAudio()):
 
         self.collections = []
         self.CHUNK = chunk
