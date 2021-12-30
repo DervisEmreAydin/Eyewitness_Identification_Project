@@ -1,11 +1,12 @@
-from tkinter import *
 import random
-from PIL import Image, ImageTk
 import tkinter as tk
+from tkinter import *
+
+from PIL import Image, ImageTk
 import conf
 import data
-from voiceRecorder import VoiceRecorder
 from screen import Screen
+from voiceRecorder import VoiceRecorder
 
 # Create the window
 page3Screen = Screen(conf.lineup_logo_main)
@@ -27,6 +28,7 @@ suspect_image_path = data.suspect_image_path
 EyewitnessLineupList = data.final_lineup_list
 EyewitnessLineupList.append(suspect_image_path)
 random.shuffle(EyewitnessLineupList)
+data.EyewitnessLineupList = EyewitnessLineupList
 print(EyewitnessLineupList)
 
 photoImageList = []
@@ -34,11 +36,17 @@ for index in range(len(EyewitnessLineupList)):
     photoImageList.append(ImageTk.PhotoImage(Image.open(EyewitnessLineupList[index])))
 
 
+# Handles button where the witness chooses the photo of the suspect
+def removeUserChoice():
+    data.witness_image_choice = ""
+    data.witness_confidence = ""
+
+
 # Stops recording and start to fill out the report
 def handle_final_button():
     guiAUD.stop()
     page3Screen.destroyWindow()
-    # import prepareFinalReport
+    import finalReport
 
 
 # Handles the button where user selects confidence rate
@@ -53,11 +61,7 @@ def handle_button_confidence_choice(rate):
            command=lambda: [final_info.destroy(), handle_final_button()]).place(relx=0.50, rely=0.80, anchor='center')
 
 
-# Handles button where the witness chooses the photo of the suspect
-def removeUserChoice():
-    data.witness_image_choice = ""
-    data.witness_confidence = ""
-
+# Handle the photo button where user identifies the suspect
 def handle_button_witness_choice(index):
     if index == -1:
         # None of photos is selected
@@ -84,7 +88,7 @@ def handle_button_witness_choice(index):
         Button(confidence_s, text="Fotoğraflara Geri Dön", font=('calibre', 13, 'bold'), bg='white',
                command=lambda: [confidence_s.destroy(), removeUserChoice(), createPhotoSelectionButtons()]).place(relx=0.50, rely=0.90, anchor='center')
 
-
+# Create photoImage buttons
 def createPhotoSelectionButtons():
     #  XXX: Needs clean-up as well a for loop should be enough to create the buttons
     l_button_1 = tk.Button(page3Window, image=photoImageList[0], command=lambda: handle_button_witness_choice(0))

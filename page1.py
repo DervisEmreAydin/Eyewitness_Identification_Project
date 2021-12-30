@@ -129,8 +129,6 @@ def F5_handle_button_remove_image():
 
 def handle_button_skip_page():
     print("button_remove_image is pressed")
-    #page1Screen.destroyWindow()
-    #page1Screen.__del__()
     handle_button_police_submit(1)
 
 
@@ -152,9 +150,7 @@ def handle_button_police_submit(skip):
                 break
             else:
                 data.dict_police_parameters[param] = entry_value
-        else:
-            data.dict_police_parameters[param] = "XXX"
-    if data.suspect_image_path == "":
+    if data.suspect_image_path == "" and skip == 0:
         flag = 1
     if flag == 0:
         print("OK")
@@ -164,6 +160,19 @@ def handle_button_police_submit(skip):
         if skip == 0:
             import page1b
         else:
+            data.dict_police_parameters = {
+                'Soruşturma Numarası: ': '123456789', 'Suç Tipi: ': 'Cinayet', 'Olay Yeri:': 'Tarlabasi',
+                'Olay Zamanı:': '12.20.2021', 'Şüpheli Sayısı:': '1', 'Tanık Sayısı: ': '4', 'Polis Memurunun Adı:': 'Nevzat',
+                'Polis Memurunun Soyadı:': 'Baskomer', 'PM Sicil Numarası: ': '987654321', 'Tanık TC KN:': '12345678999',
+                'Tanığın Adı:': 'Bahattin', 'Tanığın Soyadı: ': 'Kocaman', 'Doğum Tarihi:': '01.01.1970', 'Cinsiyeti': 'Erkek',
+                'Etnik Kökeni': 'Türk'
+            }
+            data.suspect_image_path = "FaceDataset/v3_0003928.jpg"
+            data.final_lineup_list = ['FaceDataset/v3_0868335.jpg', 'FaceDataset/v3_0495484.jpg',
+                                      'FaceDataset/v3_0561451.jpg', 'FaceDataset/v3_0925882.jpg',
+                                      'FaceDataset/v3_0169122.jpg']
+            data.dict_witness_parameters = {'Tanik Adi': 'Baris Can KAYA', 'Tanik TCKN': '501234567890',
+                                       'Esgal Tarifi': 'Tarifsiz'}
             import page3
     else:
         data.dict_police_parameters = {}
